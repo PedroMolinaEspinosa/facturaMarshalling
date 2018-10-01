@@ -1,5 +1,8 @@
 package facturaMarshalling;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
 	String nombre;
 	String apellidos;
@@ -8,6 +11,30 @@ public class Cliente {
 	String nif;
 	long id;
 	Direccion direccion;
+	List cliente = new ArrayList<Cliente>();
+
+	public Cliente(String nombre, String apellidos, String email, long telefono, String nif, long id,
+			Direccion direccion) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.telefono = telefono;
+		this.nif = nif;
+		this.id = id;
+		this.direccion = direccion;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", telefono=" + telefono
+				+ ", nif=" + nif + ", id=" + id + ", direccion=" + direccion + ", cliente=" + cliente + "]";
+	}
+
+	public Cliente(List cliente) {
+		super();
+		this.cliente = cliente;
+	}
 
 	// getters y setters
 
