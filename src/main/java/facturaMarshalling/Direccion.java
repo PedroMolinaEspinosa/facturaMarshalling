@@ -1,14 +1,22 @@
 package facturaMarshalling;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "cliente")
+@XmlRootElement(name = "direccion")
+@XmlAccessorType(XmlAccessType.FIELD)
 
 public class Direccion {
-	String tipoVia;
-	String nombreVia;
-	int cp;
-	String localidad;
+	@XmlElement
+	private String tipoVia;
+	@XmlElement
+	private String nombreVia;
+	@XmlElement
+	private int cp;
+	@XmlElement
+	private String localidad;
 
 	public Direccion(String tipoVia, String nombreVia, int cp, String localidad) {
 		super();

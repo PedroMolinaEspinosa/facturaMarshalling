@@ -3,14 +3,29 @@ package facturaMarshalling;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "cliente")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
-	String nombre;
-	String apellidos;
-	String email;
-	long telefono;
-	String nif;
-	long id;
-	Direccion direccion;
+	@XmlAttribute
+	private String nif;
+	@XmlElement
+	private String nombre;
+	@XmlElement
+	private String apellidos;
+	@XmlElement
+	private String email;
+	@XmlElement
+	private long telefono;
+	@XmlElement
+	private long id;
+	@XmlElement
+	private Direccion direccion;
 	List cliente = new ArrayList<Cliente>();
 
 	public Cliente(String nombre, String apellidos, String email, long telefono, String nif, long id,
