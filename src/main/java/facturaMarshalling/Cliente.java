@@ -26,6 +26,7 @@ public class Cliente {
 	private long id;
 	@XmlElement
 	private Direccion direccion;
+	@XmlElement
 	List cliente = new ArrayList<Cliente>();
 
 	public Cliente(String nombre, String apellidos, String email, long telefono, String nif, long id,
@@ -38,6 +39,14 @@ public class Cliente {
 		this.nif = nif;
 		this.id = id;
 		this.direccion = direccion;
+	}
+
+	public Cliente() {
+
+	}
+
+	public void addCliente(Cliente cliente) {
+		this.cliente.add(cliente);
 	}
 
 	@Override

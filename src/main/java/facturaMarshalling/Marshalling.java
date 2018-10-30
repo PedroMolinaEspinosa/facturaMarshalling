@@ -1,8 +1,6 @@
 package facturaMarshalling;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,9 +8,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-public class TestMain {
+public class Marshalling {
 	public static void main(String[] args) {
-		List clientes = new ArrayList<Cliente>();
 
 		// Productos
 		Producto p1 = new Producto(12345, "carcasa", "recarcasa", 100);
@@ -32,13 +29,14 @@ public class TestMain {
 		Cliente c3 = new Cliente("que", "si", "nose2@hot.com", 999999993, "27879464A", 123457, d4);
 		Cliente c4 = new Cliente("o", "no", "nose3@hot.com", 999999994, "27873364G", 123457, d3);
 
-		clientes.add(c1);
-		clientes.add(c2);
-		clientes.add(c3);
-		clientes.add(c4);
+		Cliente clientes = new Cliente();
+		clientes.addCliente(c1);
+		clientes.addCliente(c2);
+		clientes.addCliente(c3);
+		clientes.addCliente(c4);
 
-		JAXBContext jaxbContext;
 		try {
+			JAXBContext jaxbContext;
 			jaxbContext = JAXBContext.newInstance(clientes.getClass());
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
